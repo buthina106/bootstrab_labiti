@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 95%;
+    max-width: 1400px; 
+    margin: 55px auto; 
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 15px;
+}
+
+.left {
+    display: grid;
+    grid-template-rows: auto auto auto 1fr;
+    gap: 25px; 
+    padding: 20px; 
+    background-color: var(--main-color);
+}
+
+.right {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 15px;
+    padding: 20px; 
+    background-color: var(--main-color);
+}
+
+.company.logo img {
+    max-width: 100%; 
+}
+
+.navigation a {
+    text-decoration: none;
+    display: block;
+    color: gray;
+    padding: 15px;
+    margin-bottom: 10px; 
+}
+
+.navigation a:hover {
+    color: black;
+}
+
+.icons {
+    background-color: var(--main-color);
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icons i {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.content h3 {
+    color: gray;
+}
+
+.collection p {
+    background-color: var(--main-color);
+    padding: 10px;
+    color: gray;
+    margin-bottom: 10px; 
+}
+
+.photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.photos img {
+    width: 100%;
+    height: auto; 
+}
+
+.right nav {
+    background-color: rgb(223, 181, 129);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    padding: 10px;
+}
+
+.right nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; 
+}
+
+.right nav ul li {
+    padding: 10px 20px; 
+    border-radius: 5px;
+    margin: 5px;
+    background-color: rgb(196, 134, 59);
+}
+
+.right nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.right nav ul li:hover {
+    background-color: rgb(151, 99, 26);
+}
+
+.right .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px; 
+}
+
+.right .gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.right .gallery img:hover {
+    transform: scale(1.1); 
+    transition: transform 0.3s ease; 
+}
+
+.icons i:hover {
+    transform: scale(1.2); 
+    transition: transform 0.3s ease; 
+    color: black; 
+}

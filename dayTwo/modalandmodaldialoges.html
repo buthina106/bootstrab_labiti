@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Form to Card</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 10px;
+        }
+        .card {
+            margin-top: 20px;
+            border: 1px solid #b893b2;
+            border-radius: 8px;
+            background-color: #d3a5c3;
+            box-shadow: 0 4px 6px rgba(51, 25, 43, 0.1);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mymodal">Login</button>
+        <div class="modal" id="mymodal" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Login Form</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="loginForm" novalidate>
+                            <div class="mb-3">
+                                <label for="usernameInput" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="usernameInput" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid username.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="passwordInput" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="passwordInput" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid password.
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal" id="cancelButton">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="reset" class="btn btn-secondary ms-2">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="cardContainer"></div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function createCard(username, password) {
+            const cardContainer = document.getElementById("cardContainer");
+            const card = `
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Username: ${username}</h5>
+                        <p class="card-text">Password: ${password}</p>
+                    </div>
+                </div>
+            `;
+            cardContainer.innerHTML += card;
+        }
+
+        const myModal = new bootstrap.Modal(document.getElementById('mymodal'));
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            if (this.checkValidity() === false) {
+                event.stopPropagation();
+            } else {
+                const username = document.getElementById("usernameInput").value;
+                const password = document.getElementById("passwordInput").value;
+                createCard(username, password);
+                this.reset();
+                myModal.hide(); 
+            }
+            this.classList.add('was-validated');
+        });
+
+        document.getElementById("mymodal").addEventListener("hidden.bs.modal", function() {
+            document.getElementById("loginForm").reset();
+            document.getElementById("loginForm").classList.remove('was-validated');
+        });
+
+        document.getElementById("cancelButton").addEventListener("click", function() {
+            myModal.hide();
+        });
+    </script>
+</body>
+</html>

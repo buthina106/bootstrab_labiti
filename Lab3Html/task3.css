@@ -1,0 +1,71 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    border: 2px solid #43aeb8; 
+    border-radius: 10px;
+    height: 60vh;
+    width: 80%;
+    margin: 150px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5; 
+    box-shadow: 0 0 19px rgba(149, 214, 234, 0.2); 
+}
+
+.drag,.drop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    min-height: 150px;
+}
+
+img {
+    width: 140px;
+    height: 140px;
+    margin: 5px;
+    border: 2px solid #00bcd4;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out; 
+    cursor: pointer;
+}
+
+img:hover {
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+img:active {
+    transform: scale(1.5);
+}
+
+.drop {
+    min-height: 200px;
+    background-color: #e0e0e0;
+}
+
+.selected {
+    border-color: #2a5c6c;
+    box-shadow: 0 0 10px rgba(46, 104, 121, 0.5);
+}
+
+.dragged {
+    opacity: 0.7;
+    transform: scale(0.9);
+}
